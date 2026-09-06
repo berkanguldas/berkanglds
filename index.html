@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://yusufmtl.github.io/pro-rct/ -->
+<html lang="tr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Plata Cafe - Complete Recipe Table</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+            color: #e8e0d0;
+        }
+        
+        .table-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #161616;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #d4af37;
+            padding: 25px 40px;
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 300;
+            margin: 0;
+            letter-spacing: 2px;
+            color: #d4af37;
+        }
+        
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            opacity: 0.85;
+            font-weight: 300;
+            color: #e8e0d0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        
+        .category-section {
+            background: linear-gradient(135deg, #161616 0%, #1c1c1c 100%);
+        }
+        
+        .category-title {
+            background: #000000;
+            color: #d4af37;
+            padding: 15px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: left;
+            border: none;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #d4af37;
+        }
+        
+        .table-header {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            color: #d4af37;
+            padding: 12px 15px;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .drink-row {
+            border-bottom: 1px solid #2a2a2a;
+            transition: all 0.2s ease;
+        }
+        
+        .drink-row:hover {
+            background-color: #1f1f1f;
+        }
+        
+        .drink-row:nth-child(even) {
+            background-color: #191919;
+        }
+        
+        .drink-name-cell {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #d4af37;
+            padding: 12px 20px;
+            font-weight: 500;
+            font-size: 14px;
+            border: none;
+            position: relative;
+        }
+        
+        .drink-name-cell::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: rgba(212, 175, 55, 0.4);
+        }
+        
+        .size-cell {
+            padding: 10px 15px;
+            text-align: center;
+            border: none;
+            background: #161616;
+            font-size: 12px;
+            vertical-align: middle;
+        }
+        
+        .size-content {
+            background: #222222;
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-weight: 500;
+            color: #e8e0d0;
+        }
+        
+        .recipe-cell {
+            padding: 12px 20px;
+            border: none;
+            background: #161616;
+            font-size: 12px;
+            line-height: 1.5;
+            vertical-align: top;
+            color: #e8e0d0;
+        }
+        
+        .notes-cell {
+            padding: 12px 15px;
+            border: none;
+            background: #241d0d;
+            font-size: 11px;
+            color: #d4af37;
+            font-style: italic;
+            vertical-align: middle;
+        }
+        
+        /* Category specific colors */
+        .ice-section .drink-name-cell {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #d4af37;
+        }
+        
+        .milkshake-section .drink-name-cell {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #d4af37;
+        }
+        
+        .frozen-section .drink-name-cell {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #d4af37;
+        }
+        
+        .cocktail-section .drink-name-cell {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #d4af37;
+        }
+        
+        .special-section .drink-name-cell {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #d4af37;
+        }
+        
+        .bubble-section .drink-name-cell {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #d4af37;
+        }
+        
+        .recipe-step {
+            margin: 2px 0;
+        }
+        
+        .recipe-bold {
+            font-weight: 600;
+            color: #d4af37;
+        }
+        
+        .recipe-highlight {
+            background: #241d0d;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+            color: #d4af37;
+        }
+        
+        .footer-note {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #d4af37;
+            font-weight: 500;
+        }
+        
+        /* Mobil Kart Görünümü */
+        .drink-card {
+            display: none;
+        }
+        
+        /* Tablet ve Küçük Ekranlar */
+        @media (max-width: 1200px) {
+            body { padding: 15px; }
+            table { font-size: 11px; }
+            .header h1 { font-size: 24px; }
+            .recipe-cell, .size-cell { padding: 8px 10px; }
+        }
+        
+        /* Mobil Görünüm - Kart Yapısı */
+        @media (max-width: 768px) {
+            body { 
+                padding: 10px; 
+                background: #0d0d0d;
+            }
+            
+            .table-container {
+                border-radius: 0;
+                box-shadow: none;
+                background: transparent;
+            }
+            
+            .header {
+                padding: 20px;
+                border-radius: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .header h1 { 
+                font-size: 22px; 
+                letter-spacing: 1px;
+            }
+            
+            .header p { 
+                font-size: 13px; 
+            }
+            
+         
+            
+            /* Mobil kart container */
+            #mobile-cards {
+                padding: 0 10px;
+            }
+            
+            /* Kart görünümünü göster */
+            .drink-card {
+                display: block;
+                background: #161616;
+                border-radius: 12px;
+                padding: 15px;
+                margin-bottom: 12px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+                animation: slideIn 0.3s ease-out;
+                border: 1px solid #2a2a2a;
+            }
+            
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .card-category {
+                background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+                color: #d4af37;
+                padding: 12px 15px;
+                margin: 0 -15px 15px -15px;
+                border-radius: 12px 12px 0 0;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                text-align: center;
+                border-bottom: 1px solid #d4af37;
+            }
+            
+            .card-category.hot-drinks {
+                background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            }
+            
+            .card-category.ice-drinks {
+                background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            }
+            
+            .card-category.milkshake {
+                background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            }
+            
+            .card-category.frozen {
+                background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            }
+            
+            .card-category.cocktail {
+                background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            }
+            
+            .card-category.special {
+                background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            }
+            
+            .card-category.bubble {
+                background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            }
+            
+            .card-drink-name {
+                font-size: 16px;
+                font-weight: 600;
+                color: #d4af37;
+                margin-bottom: 12px;
+                padding-bottom: 8px;
+                border-bottom: 2px solid #2a2a2a;
+            }
+            
+            .card-section {
+                margin-bottom: 10px;
+            }
+            
+            .card-label {
+                font-size: 11px;
+                font-weight: 600;
+                color: #a08a4a;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 4px;
+            }
+            
+            .card-value {
+                font-size: 13px;
+                color: #e8e0d0;
+                line-height: 1.5;
+                background: #222222;
+                padding: 8px 10px;
+                border-radius: 6px;
+                margin-bottom: 8px;
+            }
+            
+            .card-sizes {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 8px;
+                margin-bottom: 10px;
+            }
+            
+            .card-size-item {
+                background: #241d0d;
+                padding: 8px;
+                border-radius: 6px;
+                text-align: center;
+            }
+            
+            .card-size-label {
+                font-size: 10px;
+                font-weight: 600;
+                color: #d4af37;
+                display: block;
+                margin-bottom: 4px;
+            }
+            
+            .card-size-value {
+                font-size: 11px;
+                color: #e8e0d0;
+                line-height: 1.3;
+            }
+            
+            .card-recipe {
+                background: #241d0d;
+                padding: 10px;
+                border-radius: 6px;
+                border-left: 3px solid #d4af37;
+                color: #e8e0d0;
+            }
+            
+            .card-notes {
+                background: #1a2419;
+                padding: 10px;
+                border-radius: 6px;
+                font-size: 11px;
+                color: #9fd48f;
+                font-style: italic;
+                border-left: 3px solid #6fae5f;
+            }
+            
+            .footer-note {
+                padding: 15px;
+                margin: 15px 0;
+                font-size: 11px;
+                border-radius: 12px;
+            }
+        }
+        
+        @media print {
+            body { background: white; }
+            .table-container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <div class="header">
+            <h1>LA PLATA CAFE</h1>
+            <p>Komple İçecek Reçete Rehberi</p>
+        </div>
+        
+        <div id="mobile-cards"></div>
+        
+        <div class="footer-note">
+            <strong>📋 ÖNEMLİ NOTLAR:</strong><br>
+            • Şurup/Sos miktarları <strong>M boy bardak</strong> bazındadır<br>
+            • <strong>L boy:</strong> Sos/şurup miktarlarını 5ml artır<br>
+            • <strong>S boy:</strong> Sos/şurup miktarlarını 5ml azalt<br>
+            • Bubble Tea mutlaka <strong>özel pipet</strong> ile servis edilir<br>
+            • 1 shot bardağı = <strong>2.5cl</strong><br>
+            • On The Rocks Bardak = Viski bardağı 😊<br>
+            • SUMMER REFRESHER ÜRÜNLERİ BARDAK BOYUTU (M) OLARAK BAZ ALINIR
+            
+        </div>
+&gt;
+                <table>
+            <!-- Hot Drinks Section -->
+            <tbody class="category-section">
+                <tr>
+                    <td colspan="6" class="category-title">☕ Sıcak Espresso İçecekleri</td>
+                </tr>
+                <tr>
+                    <td class="table-header">İçecek</td>
+                    <td class="table-header">S Boy</td>
+                    <td class="table-header">M Boy</td>
+                    <td class="table-header">L Boy</td>
+                    <td class="table-header">Hazırlanış</td>
+                    <td class="table-header">Notlar</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Americano</td>
+                    <td class="size-cell"><div class="size-content">Yumuşak: 1 shot<br>Sert: 2 shot</div></td>
+                    <td class="size-cell"><div class="size-content"><br>Double Shot</div></td>
+                    <td class="size-cell"><div class="size-content">Yumuşak: 2 shot<br>Sert: 30sn manuel</div></td>
+                    <td class="recipe-cell">Müşteriye tercih sor → Bardağa su → Espresso ekle</td>
+                    <td class="notes-cell">Her zaman önce su sonra espresso</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Cortado</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">
+                         2 shot</div></td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="recipe-cell">Double espresso + 65 ML süt krema</td>
+                    <td class="notes-cell">135ml cam bardak</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Latte</td>
+                    <td class="size-cell"><div class="size-content">1 shot
+                        200 ML Süt
+                    </div></td>
+                    <td class="size-cell"><div class="size-content">double shot 300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot 400 ML Süt</div></td>
+                    <td class="recipe-cell">Krema Haline Getirilmiş Sıcak Süt Belirlenen Kahve Oranı Üzerine Dökülür.  </td>
+                    <td class="notes-cell">Krema kıvamında süt</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Cappuccino</td>
+                    <td class="size-cell"><div class="size-content">1 shot 200 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">double shot 300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot 400 ML Süt </div></td>
+                    <td class="recipe-cell"> Espresso Üzerine Süt Köpüğü Eklenir Ardından Krema Haline Getirilmiş Süt Eklenir. </td>
+                    <td class="notes-cell">Köpük kıvamında süt</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Flat White</td>
+                    <td class="size-cell"><div class="size-content">2 shot <br> 200 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot <br> 300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">30sn manuel <br> 400 ML Süt</div></td>
+                    <td class="recipe-cell">Espresso + latte'ye göre daha ince krema</td>
+                    <td class="notes-cell">İnce krema kıvamı</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Affogato</td>
+                    <td class="size-cell" colspan="3"><div class="size-content">Tercih edilen bardağa 1 Top Sade Dondurma ve Double shot Espresso</div></td>
+                    <td class="recipe-cell">1 top sade dondurma Üzerine Double Shoot Espresso Eklenir. </td>
+                    <td class="notes-cell">Kaşık ile servis edilir.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Mocha</td>
+                    <td class="size-cell"><div class="size-content">1 shot 
+                        <br>
+                        200 ML Süt
+
+                    </div></td>
+                    <td class="size-cell"><div class="size-content">double shot 
+                        <br>
+                        300 ML Süt
+                    </div></td>
+                    <td class="size-cell"><div class="size-content">2 shot 
+                        <br> 
+                    400 ML Süt
+                </div></td>
+                    <td class="recipe-cell">Da Vinci çikolata sosu → espresso → karıştır. ardından krema edilmiş sıcak sütü ekle </td>
+                    <td class="notes-cell">Da vinci Çikolata sosundan 20 PUMP Koyulacak Üstüne espresso döküp kaşık yardımı ile karıştırılacak ardından krema haline getirilmiş sıcak süt dökülüp servis edilecek.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">White Mocha</td>
+                    <td class="size-cell"><div class="size-content">1 shot 
+                        <br>
+                        200 ML Süt
+                    </div></td>
+                    <td class="size-cell"><div class="size-content">double shot 
+                        <br>
+                        300 ML Süt
+                    </div></td>
+                    <td class="size-cell"><div class="size-content">2 shot 
+                        <br>
+                        400 ML Süt
+                    </div></td>
+                    <td class="recipe-cell">Da Vinci beyaz çikolata sosu → espresso → karıştır. ardından krema edilmiş sıcak sütü ekle</td>
+                    <td class="notes-cell">Da vinci Beyaz Çikolata sosundan 20 PUMP Koyulacak Üstüne espresso döküp kaşık yardımı ile karıştırılacak ardından krema haline getirilmiş sıcak süt dökülüp servis edilecek.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Caramel Latte</td>
+                    <td class="size-cell"><div class="size-content">1 shot 
+                        <br>
+                        200 ML Süt
+                    </div></td>
+                    <td class="size-cell"><div class="size-content">double 
+                        shot 
+                        <br>
+                        300 ML Süt 
+                    </div></td>
+                    <td class="size-cell"><div class="size-content">2 shot
+                        <br>
+                        400 ML Süt
+                    </div></td>
+                    <td class="recipe-cell">Da Vinci Karamel sosu → espresso → karıştır. ardından krema edilmiş sıcak sütü ekle</td>
+                    <td class="notes-cell">Da vinci Karamel sosundan 20 PUMP Koyulacak Üstüne espresso döküp kaşık yardımı ile karıştırılacak ardından krema haline getirilmiş sıcak süt dökülüp servis edilecek.Macchiatto aynı</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Almond Mocha</td>
+                    <td class="size-cell"><div class="size-content">1 shot<br> 200 ML Süt </div></td>
+                    <td class="size-cell"><div class="size-content">double shot
+                        <br> 300 ML Süt </div></td>
+                    <td class="size-cell"><div class="size-content">2 shot<br> 400 ML Süt </div></td>
+                    <td class="recipe-cell">10 Pump Davinci badem şurubu + 15 Pump Davinci çikolata sosu → espresso → karıştır. Ardından krema edilmiş sıcak sütü ekle.</td>
+                    <td class="notes-cell">Badem Şurubu + Çikolata Sosu <br> İki Sosun İyice Karıştığından Emin Ol.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">White Almond</td>
+                    <td class="size-cell"><div class="size-content">1 shot<br> 200 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br> 300 ML Süt </div></td>
+                    <td class="size-cell"><div class="size-content">2 shot<br> 400 ML Süt </div></td>
+                    <td class="recipe-cell">10 Pump Davinci badem şurubu + 15 Pump beyaz çikolata sosu → espresso → karıştır.Ardından krema edilmiş sıcak sütü ekle.</td>
+                    <td class="notes-cell">Badem Şurubu + Beyaz Çikolata Sosu <br>İki Sosun İyice Karıştığından Emin Ol. </td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Cookies Caramel</td>
+                    <td class="size-cell"><div class="size-content">1 shot<br>200 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot<br>400 ML Süt</div></td>
+                    <td class="recipe-cell">10 Pump Davinci Cookie Şurubu + 15 Pump Davinci Karamel Sosu → espresso → karıştır.Ardından Krema Edilmiş Sıcak Süt Ekle.</td>
+                    <td class="notes-cell">Cookie Şurubu + Karamel Şurubu <br> İki Sosun İyice Karıştığından Emin Ol.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Chai Tea</td>
+                    <td class="size-cell"><div class="size-content"> 30 ML Şurup </div></td>
+                    <td class="size-cell"><div class="size-content"> 40 ML Şurup </div></td>
+                    <td class="size-cell"><div class="size-content"> 50 ML Şurup </div></td>
+                    <td class="recipe-cell">Chai tea şurubu + krema haline getirilmiş süt</td>
+                    <td class="notes-cell">Şurup ve Krema Haline Getirilmiş Süt İyice Karıştırılır</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Pumpkin Spice Latte</td>
+                    <td class="size-cell"><div class="size-content">1 shot<br>200 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot <br> 400 ML Süt</div></td>
+                    <td class="recipe-cell">25 Pump Davinci pumpkin spice şurubu + az tarçın → espresso → karıştır. Ardından Krema Edilmiş Sıcak Sütü Ekle.</td>
+                    <td class="notes-cell">Tarçını Espresso İle Karıştırabilirsin.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Hot Monkey</td>
+                    <td class="size-cell"><div class="size-content">1 shot<br>200 ML Süt<br>15 ML Muz Şurubu<br>10 ML Çikolata Sosu<br>1 GR Toz Karabiber</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot <br> 400 ML Süt</div></td>
+                    <td class="recipe-cell">Şurup ve Sosları servis fincanına koyun • Üzerine espresso çekip hafifçe karıştırın• Sütünüzü Espresso makinenizin buhar çubuğu yardımı ile istenilen doku ve sıcaklığa gelene kadar ısıtın ve bardağa dökün</td>
+                    <td class="notes-cell">Bardağa karabiber tozu serpip servis edin</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Golden Latte</td>
+                    <td class="size-cell"><div class="size-content">1 shot<br>200 ML Süt<br>20 ML Karamel Şurubu<br>10 ML Vanilya Şurubu<br>2 Bar Kaşığı Toz Zerdeçal</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot <br> 400 ML Süt</div></td>
+                    <td class="recipe-cell">Tüm malzemeyi süt pitcher’ınıza koyun • Espresso makinenizin buhar çubuğu yardımı ile istenilen doku ve sıcaklığa gelene kadar ısıtın • Karışımı servis bardağına dökün</td>
+                    <td class="notes-cell">Zerdeçal, Tarçın ve Karabiber tozu Karışımı serpip servis edin</td>
+                </tr>
+                 <tr class="drink-row">
+                    <td class="drink-name-cell">Salted Caramel Pecan Latte</td>
+                    <td class="size-cell"><div class="size-content">1 shot<br>200 ML Süt<br>15 ML Tuzlu Karamel Sosu<br>20 ML Pikan Cevizi Şurubu</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot <br> 400 ML Süt</div></td>
+                    <td class="recipe-cell">Surupları ve sosu finacana dökün • Üzerine espresso çekip hafifçe karışırın. • süt pitcher’ınıza süt koyun ve buhar çubuğu yardımı ile istenilen doku ve sıcaklığa gelene kadar ısıtın</td>
+                    <td class="notes-cell">Isıtılan sütü karışımın üzerine ilave edip servis edin</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Nutty Cream Latte</td>
+                    <td class="size-cell"><div class="size-content">200 Gram Filtre Kahve<br>40 GR Dövülmüş Krema<br>15 ML Kavrulmuş Badem Şurubu<br>10 ML Fındık Şurubu</div></td>
+                    <td class="size-cell"><div class="size-content">300 Gram Filtre Kahve<br></div></td>
+                    <td class="size-cell"><div class="size-content">400 Gram Filtre Kahve<br></div></td>
+                    <td class="recipe-cell">Şurupları servis bardağına dökün • Üzerine filtre kahve ilave edip hafifçe karıştırın • Karışımın üstüne dövülmüş kremayı hafifçe katmanlama yapacak şekilde ilave edin</td>
+                    <td class="notes-cell">Bardağa Badem ve fındık tozu serpip servis edin</td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Coco Pecan Latte</td>
+                    <td class="size-cell"><div class="size-content">1 Shot<br>15 ML Pikan Cevizi Şurubu<br>10 ML Hindistan Cevizi Şurubu<br>200 ML Süt<br>1 GR Toz Zencefil</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>300 ML Süt<br></div></td>
+                    <td class="size-cell"><div class="size-content">2 Shot<br>400 ML Süt<br></div></td>
+                    <td class="recipe-cell">Şurup ve Sosları servis fincanına koyun • Üzerine espresso çekip hafifçe karıştırın • Sütünüzü Espresso makinenizin buhar çubuğu yardımı ile istenilen doku ve sıcaklığa gelene kadar ısıtın ve bardağa dökün</td>
+                    <td class="notes-cell">Bardağa zencefil tozu serpip servis edin</td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Rose Red Tea Latte</td>
+                    <td class="size-cell"><div class="size-content">1 Shot<br>10 ML Gül Şurubu<br>100 ML Rooibos Çayı<br>180 ML Süt<br>Gül Kurusu Tomurcuğu</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>280 ML Süt<br></div></td>
+                    <td class="size-cell"><div class="size-content">2 Shot<br>380 ML Süt<br></div></td>
+                    <td class="recipe-cell">Süt Pitcher’ına probiyotikli Toz karışımı dökün ve espresso makinenizin buhar çubuğu yardımı ile ısıtıp kaıştırın• Kaışımı servis bardağına döküp üzerine gül şurubunu ilave edip hafifçe karışıtırın• Karışımın üstüne demlenmiş Rooibos çayını katmanlama yapacak şekilde yavaşça ilave edin</td>
+                    <td class="notes-cell">Gül Kurusu tomurcuğu ile süsleyerek servis yapın</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Berry Dream</td>
+                    <td class="size-cell"><div class="size-content">1 Shot<br>10 ML Gül Şurubu<br>100 ML Rooibos Çayı<br>180 ML Süt<br>Gül Kurusu Tomurcuğu</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>280 ML Süt<br></div></td>
+                    <td class="size-cell"><div class="size-content">2 Shot<br>380 ML Süt<br></div></td>
+                    <td class="recipe-cell">Süt Pitcher’ına probiyotikli Toz karışımı dökün ve espresso makinenizin buhar çubuğu yardımı ile ısıtıp kaıştırın• Kaışımı servis bardağına döküp üzerine gül şurubunu ilave edip hafifçe karışıtırın• Karışımın üstüne demlenmiş Rooibos çayını katmanlama yapacak şekilde yavaşça ilave edin</td>
+                    <td class="notes-cell">Gül Kurusu tomurcuğu ile süsleyerek servis yapın</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Lychee Salted Caramel Latte</td>
+                    <td class="size-cell"><div class="size-content">1 Shot<br>10 ML Liçi Şurubu<br>15 ML Tuzlu Karamel Sosu<br>200 ML Süt<br></div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>300 ML Süt<br></div></td>
+                    <td class="size-cell"><div class="size-content">2 Shot<br>400 ML Süt<br></div></td>
+                    <td class="recipe-cell">Servis bardağına sos ve şurupları koyun • Üstüne espresso ilave edip hafifçe karıştırın</td>
+                    <td class="notes-cell">Sütünüzü Espresso makinenizin buhar çubuğu yardımı ile istenilen doku ve sıcaklığa gelene kadar ısıtın ve bardağa döküp servis edin.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Burnt Cheesecake Latte</td>
+                    <td class="size-cell"><div class="size-content">1 Shot<br>10 ML Kavrulmuş Badem Şurubu<br>20 ML Cheesecake Sosu<br>200 ML Süt<br>Bisküvi Kırıntısı</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>300 ML Süt<br></div></td>
+                    <td class="size-cell"><div class="size-content">2 Shot<br>400 ML Süt<br></div></td>
+                    <td class="recipe-cell">Servis bardağına sos ve şurubu  koyun • Üstüne espresso ilave edip hafifçe karıştırın • Sütünüzü Espresso makinenizin buhar çubuğu yardımı ile istenilen doku ve sıcaklığa gelene kadar ısıtın ve bardağa dökün</td>
+                    <td class="notes-cell">Bisküvi kırıntısı ile süsleyerek servis edin</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Whıte Chocolate Orange Latte</td>
+                    <td class="size-cell"><div class="size-content">1 Shot<br>10 ML Acı Portakal Şurubu<br>20 ML Beyaz Çikolata Sosu<br>200 ML Süt<br>1 Dilim Portakal</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>300 ML Süt<br></div></td>
+                    <td class="size-cell"><div class="size-content">2 Shot<br>400 ML Süt<br></div></td>
+                    <td class="recipe-cell">• Servis bardağına sos ve şurubu koyun • Üstüne espresso ilave edip hafifçe karıştırın • Sütünüzü Espresso makinenizin buhar çubuğu yardımı ile istenilen doku ve sıcaklığa gelene kadar ısıtın ve bardağa dökün</td>
+                    <td class="notes-cell">Dilim Portakal ile süsleyerek servis edin.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Salted Pumpkin Oleato </td>
+                    <td class="size-cell"><div class="size-content">1 Shot<br>15 ML Tuzlu Karamel Sosu<br>10 ML Pumpkin Spice Şurubu<br>180 ML Süt<br>10 ML Sızma Zeytinyağı</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>280 ML Süt<br></div></td>
+                    <td class="size-cell"><div class="size-content">2 Shot<br>380 ML Süt<br></div></td>
+                    <td class="recipe-cell">Şurup ve Sosları servis fincanına koyun. • Üzerine espresso çekip hafifçe karıştırın. • Sütünüzü espresso makinenizin buhar çubuğu yardımı ile istenilen doku ve sıcaklığa gelene kadar ısıtın</td>
+                    <td class="notes-cell">Bardağa döküp servis edin</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Kıng’s Milk </td>
+                    <td class="size-cell"><div class="size-content">1 Shot<br>15 ML Liçi Şurubu<br>10 ML Muz Şurubu<br>5 GR Bellagio Çikolata Tozu<br>180 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>280 ML Süt<br></div></td>
+                    <td class="size-cell"><div class="size-content">2 Shot<br>380 ML Süt<br></div></td>
+                    <td class="recipe-cell">• Şurupları servis bardağına koyun  • Üzerine espresso çekip, çikolata tozunu ekleyin • Üzerine Latte sütünüzü ekleyin</td>
+                    <td class="notes-cell">Bellagio çikolata tozu döküp servis edin</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Double Chocolate Sahlep</td>
+                    <td class="size-cell"><div class="size-content">1 Shot<br>20 ML Çikolata Sosu<br>20 GR Bellagio Çikolata Tozu<br>3 GR Salep Tozu<br>200 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>300 ML Süt<br></div></td>
+                    <td class="size-cell"><div class="size-content">2 Shot<br>400 ML Süt<br></div></td>
+                    <td class="recipe-cell">Pitcher’da süt ve sahlepi koyun üzerine Bellagio çikolata tozu ilave edip ideal ısıya gelene kadar ısıtın • Karışımı bardağa dökün</td>
+                    <td class="notes-cell">Çikolata dropları ile süsleyerek servis edin.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Blueberry Hot Chocolate </td>
+                    <td class="size-cell"><div class="size-content">1 Shot<br>15 ML Yaban Mersini Şurubu<br>30 GR Bellagio Çikolata Tozu<br>180 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>280 ML Süt<br></div></td>
+                    <td class="size-cell"><div class="size-content">2 Shot<br>380 ML Süt<br></div></td>
+                    <td class="recipe-cell">Tüm malzemeyi süt pitcher’ına koyup ısıntın • Karışımı bardağa dökün • Üzerine Bellagio çikolatası tozu döküp servis edin</td>
+                    <td class="notes-cell">Kürdana Geçirilmiş Yaban Mersini Taneleri İle Süslenebilir.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Butterscotch&nbsp;Cookie&nbsp;Mocha</td>
+                    <td class="size-cell"><div class="size-content">1 Shot<br>15 ML Tereyağlı Karamel Şurubu<br>5 ML GR Kurabiye Şurubu<br>180 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">double shot<br>280 ML Süt<br></div></td>
+                    <td class="size-cell"><div class="size-content">2 Shot<br>380 ML Süt<br></div></td>
+                    <td class="recipe-cell">Tüm malzemeyi süt pitcher’ınıza koyun • Espresso makinenizin buhar çubuğu yardımı ile istenilen doku ve sıcaklığa gelene kadar ısıtın • Karışımı servis bardağına dökün</td>
+                    <td class="notes-cell">Üzerine Tüp Krema ve çikolata tozu ilave ederek süsleyip servis edin</td>
+                </tr>
+            </tbody>
+            <!-- Ice Drinks Section -->
+            <tbody class="category-section ice-section">
+                <tr>
+
+                 <!-- Footer Note -->
+        
+    
+            
+                    <td colspan="6" class="category-title">🧊 Soğuk Espresso İçecekleri</td>
+                </tr>
+                <tr>
+                    <td class="table-header">İçecek</td>
+                    <td class="table-header">S Boy</td>
+                    <td class="table-header">M Boy</td>
+                    <td class="table-header">L Boy</td>
+                    <td class="table-header">Hazırlanış</td>
+                    <td class="table-header">Notlar</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Ice Americano</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot</div></td>
+                    <td class="size-cell"><div class="size-content">30 Saniye Manuel Çekilir</div></td>
+                    <td class="recipe-cell">Bardak Dolusu buz → su → espresso</td>
+                    <td class="notes-cell">Sıralamaya Dikkat Edilmelidir.  Bardağa ağız dolusu buz üstüne su ve ardından espresso ilave edilir.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Ice Latte</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot 300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot 400 ML Süt</div></td>
+                    <td class="recipe-cell">Bardak dolusu buz →Soğuk süt → espresso</td>
+                    <td class="notes-cell">Sıralamaya Dikkat Edilmelidir.  Bardak dolusu buz üstüne Ölçüsü Kadar Soğuk Süt ve ardından espresso ilave edilir.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Ice Flat White</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">30sn manuel 300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="recipe-cell">Bardak dolusu buz →Soğuk süt → double espresso</td>
+                    <td class="notes-cell">Sıralamaya Dikkat Edilmelidir. Bardak dolusu buz üstüne Ölçüsü Kadar Soğuk Süt ve ardından double espresso ilave edilir.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Ice Mocha</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot <br> 300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot <br> 400 ML Süt </div></td>
+                    <td class="recipe-cell">Buz → Ölçüsü Kadar Soğuk Süt → (espresso + Davinci çikolata sosu karışımı)</td>
+                    <td class="notes-cell">20 Pump Çikolata Sosu önceden shoot bardağında espresso ile karıştır. Bardakta hazır olan soğuk sütün üzerine ilave et.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Ice White Mocha</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot <br> 300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot <br> 400 ML Süt</div></td>
+                    <td class="recipe-cell">Buz → Ölçüsü Kadar Soğuk Süt → (espresso + Davinci Beyaz çikolata sosu karışımı)</td>
+                    <td class="notes-cell">20 Pump Beyaz Çikolata Sosu önceden shoot bardağında espresso ile karıştır. Bardakta hazır olan soğuk sütün üzerine ilave et.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Ice Karamel Latte</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot <br> 300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot <br> 400 ML Süt</div></td>
+                    <td class="recipe-cell">Buz → Ölçüsü Kadar Soğuk Süt → (espresso + Davinci Karamel sosu karışımı)</td>
+                    <td class="notes-cell">20 Pump Karamel Sosu önceden shoot bardağında espresso ile karıştır. Bardakta hazır olan soğuk sütün üzerine ilave et.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Ice Almond Mocha</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot<br> 300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot<br>400 ML Süt</div></td>
+                    <td class="recipe-cell">Buz → Ölçüsü Kadar Soğuk Süt → (espresso + Davinci Badem Şurubu + Çikolata Sosu karışımı)</td>
+                    <td class="notes-cell">10 Pump Badem Şurubu + 15 Pump Çikolata Sosu önceden shoot bardağında espresso ile karıştır. Bardakta hazır olan soğuk sütün üzerine ilave et.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Ice White Almond</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot<br>300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot<br>400 ML Süt</div></td>
+                    <td class="recipe-cell">Buz → Ölçüsü Kadar Soğuk Süt → (espresso + Davinci Badem Şurubu + Beyaz Çikolata Sosu karışımı)</td>
+                    <td class="notes-cell">10 Pump Badem Şurubu + 15 Pump Beyaz Çikolata Sosu önceden shoot bardağında espresso ile karıştır. Bardakta hazır olan soğuk sütün üzerine ilave et.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Ice Cookies Caramel</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot<br>300 ML Süt</div></td>
+                    <td class="size-cell"><div class="size-content">2 shot<br>400 ML Süt</div></td>
+                    <td class="recipe-cell">Buz → Ölçüsü Kadar Soğuk Süt → (espresso + Davinci Cookie Şurubu + Karamel Sosu karışımı)</td>
+                    <td class="notes-cell">10 Pump Cookie Şurubu + 15 Pump Karamel Sosu önceden shoot bardağında espresso ile karıştır. Bardakta hazır olan soğuk sütün üzerine ilave et.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Cold Brew</td>
+                    <td class="size-cell" colspan="3"><div class="size-content">Misafirin İstedeği Ölçüde Servis Edilir</div></td>
+                    <td class="recipe-cell">2LT cam sürahiye 150 gr filtre kahve dökülür üzerine sürahiyenin tamamını dolduracak şekilde arıtmadan su koyulur ve 16 18 saat arası buzdolabında bekletilir. Sonrasında kahve posasından tamamen arıtmak için ince tül bez yardımıyla küçük şişelere doldurulur ve servise sunulur. </td>
+                    <td class="notes-cell">Servis Etmeden Önce Buzdolabında Muhafaza Edilmelidir. </td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Gold Brew Berry Fızz</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">Kırmızı Meyveler Şurubu 15 ML 
+                        Vanilya Şurubu 10 ML <br>
+                        Soğuk Demlenmiş Kahve 100 ML <br>
+                        Soda 50 ML <br>
+                        Buz 150 GR 
+                    </div></td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="recipe-cell">Shakera 1/2oz glass GARNİTÜR Portakal Dilimi</td>
+                    <td class="notes-cell">Kahvenize her litre için bir bar  kaşığı olacak şekilde yenilebilir altın tozu koyun Soda hariç tüm malzemeleri shaker’a koyup bol buzla çalkalayın Karışımı servis bardağına döküp üzerini soda ile tamamlayın Portakal dilimi ile süsleyip servis edin</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Salted Caramel &amp; Pecan Latte</td>
+                    <td class="size-cell"><div class="size-content"></div></td>
+                    <td class="size-cell"><div class="size-content">Tuzlu Karamel Sosu 15 ML <br> Pikan Cevizi Şurubu 15 ML <br>Filtre Kahve Soğuk 100 ML <br> Süt 50 ML <br>Buz 150GR
+                    </div></td>
+                    <td class="size-cell"><div class="size-content"><br> -</div></td>
+                    <td class="recipe-cell">Shaker veya Blender 1/2oz glass Marshmallow ve Ceviz Kırıntısı</td>
+                    <td class="notes-cell">Tüm malzemeleri shaker’a koyup bol buzla çalkalayın Karışımı servis bardağına dökün Ceviz parçacıkları ve  pürmüzlenmiş
+Marshmallow ile süsleyin</td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Toffe Nut Latte </td>
+                    <td class="size-cell" colspan="3"><div class="size-content">Tuzlu Karamel Sosu 20 ML<br> Fındık Şurubu 10 ML<br> Filtre Kahve Soğuk 100 ML<br> Süt 50 ML <br> Buz 150 G </div></td>
+                    <td class="recipe-cell">Shakera 1/2oz glass GARNİTÜR Fındık parçacıkları ve Yıldız Anason </td>
+                    <td class="notes-cell">Tüm malzemeleri bol buzla çalkalayıp bardağa boşaltın Fındık parçacıkları ile süsleyerek servis edin </td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Chocolate Rose Mocha </td>
+                    <td class="size-cell" colspan="3"><div class="size-content">Çikolata Sosu 20 ML <br> Gül Şurubu 10 ML <br> Soğuk Filtre Kahve 100 ML <br> Süt 50 ML <br> 150GR </div></td>
+                    <td class="recipe-cell">Shaker/12oz glass Krema, Gül Kurusu </td>
+                    <td class="notes-cell">Tüm malzemeleri bol buzla çalkalayıp bardağa boşaltın Tüp Krema ve gül Kurusu  parçacıkları ile süsleyerek servis edin </td>
+                </tr>
+            </tbody>
+            
+            <!-- Milkshake Section -->
+            <tbody class="category-section milkshake-section">
+                <tr>
+                    <td colspan="6" class="category-title">🥤 Milkshake</td>
+                </tr>
+                <tr>
+                    <td class="table-header">İçecek</td>
+                    <td class="table-header">S Boy</td>
+                    <td class="table-header">M Boy</td>
+                    <td class="table-header">L Boy</td>
+                    <td class="table-header">Hazırlanış</td>
+                    <td class="table-header">Notlar</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Vanilyalı Milkshake</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">180 ML Süt<br>3 Tatlı Kaşığı Frappe Tozu<br>140GR Buz<br>40 Pump Davinci vanilya şurubu</div></td>
+                    <td class="size-cell"><div class="size-content">240 ML Süt<br>4 Tatlı Kaşığı Frappe Tozu<br>180GR Buz<br>50 Pump Davinci vanilya şurubu</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 4.seviyede çek → servis et</td>
+                    <td class="notes-cell">Bardağı Çeşitli Dekor Sos ve Kremşanti İle Süsle</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Çikolatalı Milkshake</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">180 ML Süt<br>3 Tatlı Kaşığı Frappe Tozu<br>140GR Buz<br>20 Pump Davinci Çikolata Sosu<br>1 Kaşık Sıcak Çikolata Tozu</div></td>
+                    <td class="size-cell"><div class="size-content">240 ML Süt<br>4 Tatlı Kaşığı Frappe Tozu<br>180GR Buz<br>30 Pump çikolata Sosu<br>1 Kaşık Sıcak Çikolata Tozu</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 4.seviyede çek → servis et</td>
+                    <td class="notes-cell">Bardağı Çeşitli Dekor Sos ve Kremşanti İle Süsle</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Çilekli Milkshake</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">180 ML Süt<br>3 Tatlı Kaşığı Frappe Tozu<br>140GR Buz<br>30 ML Çilek Püresi<br>10 ML Çilek Şurubu</div></td>
+                    <td class="size-cell"><div class="size-content">240 ML Süt<br>4 Tatlı Kaşığı Frappe Tozu<br>180GR Buz<br>40 Pump Çilek Püresi<br>20 ML Çilek Şurubu</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 4.seviyede çek → servis et</td>
+                    <td class="notes-cell">Bardağı Çeşitli Dekor Sos ve Kremşanti İle Süsle. Meyve Bazlı Milkshakelerde Püre Kullanılabilir</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Muzlu Milkshake</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">180 ML Süt<br>3 Tatlı Kaşığı Frappe Tozu<br>140GR Buz<br>20 Pump Muz Şurubu<br>1/2 Muz</div></td>
+                    <td class="size-cell"><div class="size-content">240ml süt<br>4 Tatlı Kaşığı Frappe Tozu<br>180GR Buz<br>30 Pump Muz Şurubu<br>1/2 Muz</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 4.seviyede çek → servis et</td>
+                    <td class="notes-cell">Bardağı Çeşitli Dekor Sos ve Kremşanti İle Süsle. Meyve Bazlı Milkshakelerde Püre Kullanılabilir</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Karamel Milkshake</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">180 ML Süt<br>3 Tatlı Kaşığı Frappe Tozu<br>140GR Buz<br>40 Pump Davinci karamel sosu </div></td>
+                    <td class="size-cell"><div class="size-content">240 ML Süt<br>4 Tatlı Kaşığı Frappe Tozu<br>180GR Buz<br>50 Pump Davinci karamel sosu</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 4.seviyede çek → servis et</td>
+                    <td class="notes-cell">Bardağı Çeşitli Dekor Sos ve Kremşanti İle Süsle</td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Coconut &amp; Turmer Milkshake</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">Hindistan Cevizi Şurubu 10 ML<br>Ananas Püresi 15 ML <br>3 Tatlı Kaşığı Frappe Tozu <br>Süt 100 ML <br>Buz 150 GR</div></td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 4.seviyede çek → servis et</td>
+                    <td class="notes-cell">Garnitürler hariç tüm malzemeleri blender’a ilave edin ve  karıştırın. Karışımı bardağa dökün Ananas Dilimi ve Kurutulmuş Hindistan Cevizi ile süsleyerek servis edin</td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Strawberry Almond Chia Milkshake</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">Çilek Püresi 10 ML<br>Chia Tohumu Jeli 30 ML <br>3 Tatlı Kaşığı Frappe Tozu <br>Süt 100 ML <br>Buz 150 GR</div></td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 4.seviyede çek → servis et</td>
+                    <td class="notes-cell">Chia  tohumu jelini hazırlamak için 300 ml suya 15 gr chia tohumu ekleyip 10 dakika bekleyin Garnitürler hariç tüm malzemeleri blender’a ilave edin ve  karıştırın.Karışımı bardağa dökün Yarım Çilek,Badem Tozu,Ciya Toğumu Jeli ilesüsleyerek servis edin</td>
+                </tr>
+                 
+            </tbody>
+            
+            <!-- Frozen Section -->
+            <tbody class="category-section frozen-section">
+                <tr>
+                    <td colspan="6" class="category-title">🍧 Frozen</td>
+                </tr>
+                <tr>
+                    <td class="table-header">İçecek</td>
+                    <td class="table-header">S Boy</td>
+                    <td class="table-header">M Boy</td>
+                    <td class="table-header">L Boy</td>
+                    <td class="table-header">Hazırlanış</td>
+                    <td class="table-header">Notlar</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Muz Frozen</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">90 ML Su<br>30 ML Muz Püresi<br>10 ML Muz Şurubu<br>200GR Buz</div></td>
+                    <td class="size-cell"><div class="size-content">120 ML Su<br>40 ML Muz Püresi<br>20 ML Muz Şurubu<br>300GR Buz</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 5.seviyede çek → servis et</td>
+                    <td class="notes-cell">Hazır Olan Ürünün Üzerine Taze Nane ile Dekor Ekle.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Mango Frozen</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">90 ML Su<br>160 ML Mango Püresi<br>200GR Buz</div></td>
+                    <td class="size-cell"><div class="size-content">120 ML Su<br>200 ML Mango Püresi<br>300GR Buz</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 5.seviyede çek → servis et</td>
+                    <td class="notes-cell">Hazır Olan Ürünün Üzerine Taze Nane ile Dekor Ekle.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Yeşil Elma Frozen</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">90 ML Su<br>160 ML Yeşil Elma Püresi<br>200GR Buz</div></td>
+                    <td class="size-cell"><div class="size-content">120 ML Su<br>200 ML Yeşil Elma Püresi<br>300GR Buz</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 5.seviyede çek → servis et</td>
+                    <td class="notes-cell">Hazır Olan Ürünün Üzerine Taze Nane ile Dekor Ekle.Çeşitli Meyveler ile Süslenebilir.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Passion Fruit Frozen</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">90 ML Su<br>160 ML Passion Fruit Püresi<br>200GR Buz</div></td>
+                    <td class="size-cell"><div class="size-content">120 ML Su<br>200 ML Passion Fruit Püresi<br>300GR buz</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 5.seviyede çek → servis et</td>
+                    <td class="notes-cell">Hazır Olan Ürünün Üzerine Taze Nane ile Dekor Ekle.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Çilek Frozen</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">90 ML Su<br>160 ML Çilek Püresi<br>200GR Buz</div></td>
+                    <td class="size-cell"><div class="size-content">120 ML Su<br>200 ML Çilek Püresi<br>300GR Buz</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 5.seviyede çek → servis et</td>
+                    <td class="notes-cell">Hazır Olan Ürünün Üzerine Taze Nane ile Dekor Ekle.Çeşitli Meyveler ile Süslenebilir</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Limon Frozen</td>
+                    <td class="size-cell"><div class="size-content">-</div></td>
+                    <td class="size-cell"><div class="size-content">90 ML Su<br>100 ML Limon Püresi<br>200GR Buz</div></td>
+                    <td class="size-cell"><div class="size-content">120 ML Su<br>120 ML Limon Püresi<br>300GR Buz</div></td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 5.seviyede çek → servis et</td>
+                    <td class="notes-cell">Hazır Olan Ürünün Üzerine Taze Nane ile Dekor Ekle.</td>
+                </tr>
+            </tbody>
+            
+            <!-- Cocktail Section -->
+            <tbody class="category-section cocktail-section">
+                <tr>
+                    <td colspan="6" class="category-title">🍹 Japanese Matcha </td>
+                </tr>
+                <tr>
+                    <td class="table-header">İçecek</td>
+                    <td class="table-header" colspan="3">Malzemeler (1 shot = 2.5cl)</td>
+                    <td class="table-header">Hazırlanış</td>
+                    <td class="table-header">Notlar</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Ice Matcha Latte</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            1 Tatlı Kaşığı Matcha<br>
+                            100 ML 80 Derece Sıcak Su<br>
+                            
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Wisk Takımına Matcha &amp; Su Eklenir İyice Çırpılır </td>
+                    <td class="notes-cell">M Boy Soğuk Bardağa %80 Süt %80 Buz, Kalan %20 ye  Matcha Eklenir ve Servis Edilir.
+                        Çilekli veya Vanilyalı Seçeneğimiz Vardır Bu Seçeneklerinden Biri İstenirse Bardağın Dibine Aroma Eklenir. </td>
+                </tr>
+                
+        
+            <!-- Special Drinks Section -->
+            </tbody><tbody class="category-section special-section">
+                <tr>
+                    <td colspan="6" class="category-title">🌟 La Plata Special</td>
+                </tr>
+                <tr>
+                    <td class="table-header">İçecek</td>
+                    <td class="table-header" colspan="3">Malzemeler</td>
+                    <td class="table-header">Hazırlanış</td>
+                    <td class="table-header">Notlar</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Cool Lime</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            210 ML Yeşil Çay<br>
+                            30 ML Menta Cubano şurubu<br>
+                            10 ML Mexican lime şurubu<br>
+                            2 yaprak nane<br>
+                            Az limon suyu
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Yazılan ürünler shakerın içine atılacak 2 yaprak nane elde patlatılıp içine atılacak çok az limon suyu sıkılacak ve buz ile beraber shakelenecek bardağa dökülecek</td>
+                    <td class="notes-cell">1 adet ince kesilmiş traş limon bardağın içine atılacak ve servis edilecek</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Pomegranate Hibiscus</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            210 ML Hibisküs Çayı<br>
+                            20 ML Menta Cubano<br>
+                            40 ML Nar Şurubu<br>
+                            
+                            1 yaprak nane
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Shakere atılacak buz koyulacak shakelenecek ve bardağa dökülecek</td>
+                    <td class="notes-cell">bardağa 1 yaprak nane atılacak ve servis edilecek.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Berry Hibiscus</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            210 ML Hibisküs Çayı<br>
+                            20 ML Menta Cubano<br>
+                            40 ML Mixed Berry Püresi<br>
+                            Az Limon suyu
+                        
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Shakere atılacak buz koyulacak shakelenecek bardağa dökülüp servis edilecek.</td>
+                    <td class="notes-cell">bardağa 1 yaprak nane atılacak ve servis edilecek.</td>
+                </tr>
+            </tbody>
+
+            <tbody><tr class="drink-row">
+                    <td class="drink-name-cell"> GRAPEFRUIT 
+CHIA PEACH TEA</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            Pomelo Greyfurt Şurubu 10 ml<br>
+                            Şeftali Şurubu 15 m<br>
+                            Demlenmiş Yaseminli Yeşil Çay 120 ML  <br>
+                            
+Buz 180g
+                            
+                            
+                        
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Shaker/12oz Bardak
+GARNİTÜR Chia toğumu jeli/ Pürmüzlenmiş
+Greyfurt dilimi</td>
+                    <td class="notes-cell"> Chia tohumu jelini hazırlamak için 300 ml suya
+15 g chia tohumu ekleyip 10 dakika bekleyin.
+• Garnitürler hariç tüm malzemeyi shaker’ınızın
+içine koyup bol buzla çalkalayın.
+• Karışımı servis bardağına dökün.
+• Chia toğumu jeli ve pürmüzlenmiş greyfurt
+dilimi ile süslerek servis edin.</td>
+                </tr>
+            </tbody>
+
+            <tbody><tr class="drink-row">
+                    <td class="drink-name-cell"> BERRY 
+BLOSSOM ICED 
+TEA</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            Kırmızı Meyveler Püresi 15ml<br>
+Gül Şurubu 5 ml<br>
+Intense Kiraz Ağacı Şurubu 5 ml<br>
+                            Soda 50 ML <br>                        
+Buz 180g
+                            
+                            
+                        
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Shaker/12oz Bardak
+GARNİTÜR Kırmızı meyveler/ Gül Kurusu 
+tomurcuğu</td>
+                    <td class="notes-cell">Çay ve şurupları shaker’ınıza ekleyerek bol buz ile çalkalayın • Karışımı servis bardağına dökün • Kırmızı meyveler, Gül Kurusu tomurcuğu • ile süsleyin </td>
+                </tr>
+            </tbody>
+
+            <tbody><tr class="drink-row">
+                    <td class="drink-name-cell"> SUPER 
+BERRIES MINT FRU-TEA</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            Kırmızı Meyveler Şurubu 10 ML <br>
+Küba Nanesi Şurubu 10 ML <br>
+Limonata 50 ML <br>
+Demlenmiş Siyah Çay 100 ML
+                            
+                            
+                        
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Shaker/12oz Bardak
+GARNİTÜR Çilek Dilimleri ve Nane Filizi 
+tomurcuğu</td>
+                    <td class="notes-cell">Limonata ve  Şurupları bardağına ekleyin
+Karışımın üstüne siyah çay ekleyin
+Çilek dilimleri ve Nane filizi ile süsleyerek servis edin.</td>
+                </tr>
+            </tbody>
+            
+             <tbody><tr class="drink-row">
+                    <td class="drink-name-cell"> GALAXY TEA</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">Çilek Şurubu 10 ML<br> 
+                            Liçi Şurubu 10 Ml<br>
+                            Mavi kelebek çayı (1/10 demlenmiş) 60 ML<br>         
+                            Soda ya da Tonik 60 ML <br> 
+                            
+                            
+                        
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Shaker/12oz Bardak
+GARNITÜR    Bubble Tea pearls(Liçi &amp; Çarkıfelek meyve karışımı) </td>
+                    <td class="notes-cell">Bütün malzemeleri servis bardağına ekleyin
+Soda yada  Tonik ekleyin ve b uba tea  çeşitleri ile süsleyin (Passion fruit &amp; lychee) </td>
+                </tr>
+            </tbody>
+
+            <tbody><tr class="drink-row">
+                    <td class="drink-name-cell">TROPICAL BLISS ICED TEA</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            Ananas Püresi 10 ML <br>
+Muz Şurubu 10 ML <br>
+Limonata 50 ML <br>
+Demlenmiş Hibiscus Çay 100 ML
+                      
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Shaker/12oz Bardak
+GARNİTÜR Ananas Dilimleri </td>
+                    <td class="notes-cell">Limonata ve  Şurupları shaker’a koyup bol buzla çalkalayın <br>
+                        Karışımın üstüne hibiiskus çayını ekleyin Ananas dilimi ile süsleyerek servis edin  
+
+                    </td>
+                    </tr><tr class="drink-row">
+                    <td class="drink-name-cell">Purple Lemonade</td>
+                    <td class="size-cell" colspan="3"><div class="size-content">Pomelo Greyfurt Şurubu 10 ML<br>Liçi Şurubu 15 ML <br>Limonata 100 ML<br> Mavi Kelebek Çayı (Gümüş Tozlu) 50ML<br>Buz 150 GR
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Shaker / 12oz glass Pürmüzlenmiş Greyfurt</td>
+                    <td class="notes-cell">Mavi Kelebek çayı hariç tüm malzemeleri bol buzla çalkalayıp bardağa boşaltın Karışımın üstüne Mavi kelebek çayını yavaşça katmanlama yapacak şekilde dökün</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Milky Lemonade</td>
+                    <td class="size-cell" colspan="3"><div class="size-content">Tereyağlı Karamel Sosu 15 ML<br>Çarkıfelek Püresi 15 ML <br>Limonata 100 ML<br> Süt 50ML<br>Buz 150 GR
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Shaker/12oz glass GARNİTÜR Limon Dilimi / Limon  aromalı Bubble Tea</td>
+                    <td class="notes-cell">Tüm malzemeleri bol buzla çalkalayıp bardağa boşaltın Halka kesilmiş limon Limon aromalı Bubble Tea ile süsleyerek servis edin</td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Snickers Life</td>
+                    <td class="size-cell" colspan="3"><div class="size-content">1 Adet Snickers Çikolata<br>2 Pump Karamel <br>1 Pump Vanilya<br> Süt 180ML<br>Buz 150 GR
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Tüm malzemeleri blendere koy → 4.seviyede çek → servis et</td>
+                    <td class="notes-cell">Bardağı Çeşitli Dekor Sos ve Kremşanti İle Süsle</td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Apple Mint</td>
+                    <td class="size-cell" colspan="3"><div class="size-content">20 ML Menta Cubano Şurubu<br>30 ML Yeşil Elmaü Presi<br>10 ML limon suyu <br>210 ML Su<br></div>
+                    </td>
+                    <td class="recipe-cell">Buzla shake&nbsp;et&nbsp;ve&nbsp;servis&nbsp;et</td>
+                    <td class="notes-cell">Bardağı Çeşitli Nane İle Süsle</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Strawcoco</td>
+                    <td class="size-cell" colspan="3"><div class="size-content">30 ML Strawberry Şurubu<br>20 ML Coconut Şurubu<br>10 ML Mango Püresi<br>210 ML Su<br></div>
+                    </td>
+                    <td class="recipe-cell">Buzla shake&nbsp;et&nbsp;ve&nbsp;servis&nbsp;et</td>
+                    <td class="notes-cell">Bardağı İçeriğe Özel Dekorlar ile Süsle.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Mango Passion Refresher </td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            40 ML Mango Püresi<br>
+                            20 ML Passion (Çarkıfelek) Şurubu<br>
+                            20 ML Limon Suyu<br>
+                            250 ML Soğuk Su<br>
+                            150 GR Buz
+
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Blender’a buz, mango püresi, çarkıfelek şurubu ve limon suyunu ekle. Üzerine soğuk suyu dök. 20–30 saniye pürüzsüz olana kadar karıştır.
+</td>
+                    <td class="notes-cell">Mango Dilimi ya da Nane ile Süsle.</td>
+                </tr>
+                   <tr class="drink-row">
+                    <td class="drink-name-cell">Şeftalili Ice Tea </td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            300 ML Demli Siyah Çay (Soğutulmuş)<br>
+                            30 ML Şeftali Şurubu<br>
+                            150 GR buz<br>
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Bardağa buzları koy.Üzerine şeftali şurubunu ekle. Soğutulmuş demli çayı yavaşça dök.
+
+Karıştır ve servis et.
+</td>
+                    <td class="notes-cell">Taze Şeftali Dilimleriyle Sunumu Zenginleştirebilirsin.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Karpuz Fesleğen Cooler</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            60 ML Karpuz Püresi<br>
+                            15 ML Limon Suyu<br>
+                            15 ML Şeker Şurubu<br>
+                            250 ML Soğuk Su<br>
+                            150 GR Buz<br>
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Blender’a karpuz püresi, limon suyu ve şeker şurubunu ekle.Soğuk suyu ilave et.Buzu ekleyip 15–20 saniye pürüzsüz olana kadar karıştır. Uzun bir bardağa dökerek servis et. </td>
+                    <td class="notes-cell">Nane Ekleyerek Aromayı Tazeleyebilirsin.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Hindistan Cevizi Limon Freeze</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            40 ML Hindistan Cevizi Şurubu<br>
+                            30 ML Limon Suyu<br>
+                            200 ML Soğuk Su<br>
+                            180 GR Buz
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Blender’a limon suyu ve Hindistan cevizi şurubunu ekle.Soğuk suyu ilave et. Buzu ekleyip 20–25 saniye pürüzsüz olana kadar karıştır. Soğuk bir bardağa dökerek servis et.
+ </td>
+                    <td class="notes-cell">Üstüne Rendelenmiş Hindistan Cevizi Serpebilirsin</td>
+</tr>
+     <tr class="drink-row">
+                    <td class="drink-name-cell">Portakal Fesleğen Refresher</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            60 ML Taze Portakal Suyu <br>
+                            20 ML Limon Suyu<br>
+                            15 ML Şeker Şurubu <br>  
+                            250 ML Soğuk Su<br>
+                            150 GR Buz<br>
+                            2 Yaprak Fesleğen
+
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Fesleğen yapraklarını bardağın dibinde hafifçe bastırarak aromasını çıkar (ezmeden).Portakal suyu, limon suyu ve şeker şurubunu ekle.Soğuk suyu ilave et ve karıştır.Buzu ekleyip tekrar hafifçe karıştırarak servis et.
+ </td>
+                    <td class="notes-cell">Tropikal &amp; narenciye bazlı imza içecek</td>
+                </tr>  
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Böğürtlen Limonata</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            40 ML Böğürtlen Püresi <br>
+                            30 ML Limon Suyu<br>
+                            20 ML Şeker Şurubu<br>  
+                            250 ML Su<br>
+                            150 GR Buz
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Blender’a böğürtlen püresi, limon suyu ve şeker şurubunu ekle.Suyu ilave et.Buzu ekleyip 20–25 saniye pürüzsüz olana kadar karıştır.Soğuk bir bardağa dökerek servis et.
+ </td>
+                    <td class="notes-cell">Doğal meyve püresi ile hazırlanır. Şeker oranı isteğe göre ayarlanabilir.</td>
+                </tr>   
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Ananas Hindistan Cevizi Cooler</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            50 ML Ananas Püresi <br>
+                            20 ML Hindistan Cevizi Şurubu <br>
+                            20 ML Limon Suyu<br>  
+                            250 ML Soğuk Su<br>
+                            150 GR Buz
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Blender’a ananas püresi, Hindistan cevizi şurubu ve limon suyunu ekle.Soğuk suyu ilave et.Buzu ekleyip 20–25 saniye pürüzsüz kıvam alana kadar karıştır.Soğuk bir bardağa dökerek servis et.
+ </td>
+                    <td class="notes-cell">Bardağın kenarına ince bir limon veya portakal dilimi ekleyerek görselliği artır</td>
+                </tr>  
+                    
+                
+                
+            </tbody>
+            <!-- Bubble Tea Section -->
+            <tbody class="category-section bubble-section">
+                <tr>
+                    <td colspan="6" class="category-title">🧋 Bubble Tea</td>
+                </tr>
+                <tr>
+                    <td class="table-header">İçecek</td>
+                    <td class="table-header" colspan="3">Malzemeler</td>
+                    <td class="table-header">Hazırlanış</td>
+                    <td class="table-header">Notlar</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Bluerange Bubble Tea</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            Shakerin %75'i buz<br>
+                            40ml Teajoy Bluerange<br>
+                            200ml su<br>
+                            5ml taze limon suyu<br>
+                            35gr Bobajoy frambuaz bubble
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Bubble topları harici geri kalanlar shakere eklenecek buz ile shakelenecek. Bardağın içine 35 gr bubble topları koyulacak ve shakelenen içecek bardağa ilave edilecek</td>
+                    <td class="notes-cell">Bubble Tea pipeti ile servis edilir.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Dragonia Bubble Tea</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            Shakerin %75'i buz<br>
+                            40ml Teajoy Dragonia<br>
+                            200ml su<br>
+                            5ml taze limon suyu<br>
+                            35gr Bobajoy bluetropical bubble
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Bubble topları harici geri kalanlar shakere eklenecek buz ile shakelenecek. Bardağın içine 35 gr bubble topları koyulacak ve shakelenen içecek bardağa ilave edilecek</td>
+                    <td class="notes-cell">Bluetropical bubble</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Hype&amp;Joy Bubble Tea</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            Shakerin %75'i buz<br>
+                            40ml Teajoy Hype&amp;Joy<br>
+                            200ml su<br>
+                            5ml limon suyu<br>
+                            35gr blueberry bubble
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Bubble topları harici geri kalanlar shakere eklenecek buz ile shakelenecek. Bardağın içine 35 gr bubble topları koyulacak ve shakelenen içecek bardağa ilave edilecek</td>
+                    <td class="notes-cell">Blueberry bubble</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Queen Style Bubble Tea</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            Shakerin %75'i buz<br>
+                            40ml Teajoy Queen Style<br>
+                            200ml su<br>
+                            5ml taze limon suyu<br>
+                            35gr Bobajoy çarkıfelek
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Bubble topları harici geri kalanlar shakere eklenecek buz ile shakelenecek. Bardağın içine 35 gr bubble topları koyulacak ve shakelenen içecek bardağa ilave edilecek </td>
+                    <td class="notes-cell">Çarkıfelek bubble</td>
+                </tr>
+            </tbody>
+
+            <tbody><tr>
+                    <td colspan="6" class="category-title"> Healthy&amp;Clean Drinks </td>
+                </tr>
+                <tr>
+                    <td class="table-header">İçecek</td>
+                    <td class="table-header" colspan="3">Malzemeler</td>
+                    <td class="table-header">Hazırlanış</td>
+                    <td class="table-header">Notlar</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Fit Choco </td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            Süt 180ML<br>
+                            1.5 Tatlı Kaşığı Yer Fıstığı Ezmesi<br>
+                            1 Adet Dondurulmuş Muz<br>
+                            1.5 Tatlı Kaşığı Ülker Kakao<br>
+                            1.5 Tatlı Kaşığı Callebaut Çikolatası <br>
+                            20GR Buz
+
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Aldığım Muzları Kesiyorum ve Donduruyorum Dondurduğum Muzlardan 1 Adet Muz Ülker’in Kakao Tozundan 1,5 Tatlı Kaşığı Atılacak Callebaut Kakaosundan 1.5 Tatlı Kaşığı Atılacak.
+</td>
+                    <td class="notes-cell">Blend Edip Servis Ediyoruz.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Vital Boost Juice</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            9 Adet Orta Boy Çilek<br>
+                            2 Adet Yeşil Elma<br>
+                            1 Adet Soyulmuş Kivi<br>
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Önce Yeşil elma küçük küçük bölünecek Üzerine çilek bitirilecek Üzerine kiviyi atacaz  En son yine yeşil elma atılacak sonra bardağa atılacak. Katı meyve sıkacağı ile yapılacak
+</td>
+                    <td class="notes-cell">Orta Boy Soğuk Bardakta Servis Ediyoruz.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Vital Red</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            1 Adet Küçük Pancar<br>
+                            1 Adet Kırmızı Elma<br>
+                            1 Adet Salatalık<br>
+                            1 Adet Elma<br>
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Katı meyve sıkacağı ile yapılacak Malzemeleri Özenle Blendıra At ve İyice Çözündüğünden Emin Ol. </td>
+                    <td class="notes-cell">Orta Boy Soğuk Bardakta Servis Ediyoruz.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Green Detoks</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            1 Adet Yeşil Elma<br>
+                            100 GR Ispanak (1.5 Avuç Dolusu)<br>
+                            1 Adet Portakal<br>
+                            20 GR Zencefil (Zencefillerin Kabuğu Soyulacak)<br>
+                            Yarım Limon
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Katı meyve sıkacağı ile yapılacak Malzemeleri Özenle Blendıra At ve İyice Çözündüğünden Emin Ol. </td>
+                    <td class="notes-cell">Orta Boy Soğuk Bardakta Servis Ediyoruz.</td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Ginger Shot</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            100 GR Zencefil(Zencefillerin Kabuğu Soyulacak)<br>
+                            2 Adet Limon (Limnonların Kabukları Soyulacak)<br>
+                            1,5 tatlı kaşığı elma suyu konsantresi<br>
+                        </div>
+                    </td>
+                    <td class="recipe-cell">100 ml su ile seyreltilmesi gerekiyor. Süz ve shot şişesine koy. Katı meyve sıkacağı ile yapılacak.
+ </td>
+                    <td class="notes-cell">Shot Bardaklarına Servis Edilecek. Raf Ömrü 3 Gündür.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Pepper Shot</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            2 Adet Portakal (kabukları soyulmuş) <br>
+                            1 limon kabukları soyulmuş<br>
+                            20 GR zencefil kabukları soyulmuş <br>
+                            Yarım Çay Kaşığı Acı Toz Biber
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">100 ml su karıştır shotlara şişele. Katı meyve sıkacağı&nbsp;ile&nbsp;yapılacak
+ </td>
+                    <td class="notes-cell">Shot Bardaklarına Servis Edilecek. Raf Ömrü 3 Gündür.</td>
+                </tr>
+            
+                <tr>
+                    <td colspan="6" class="category-title"> 🧋 Summer Refresher </td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Böğürtlenli Soda</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            40 ML Böğürtlen Püresi<br>
+                            15 ML Limon Suyu<br>
+                            10 ML Şeker Şurubu<br>
+                            300 ML Sade Soda<br>
+                            120 GR Buz
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Bardağa buzları ekle.Böğürtlen püresi, limon suyu ve şeker şurubunu bardağa koyup hafifçe karıştır. Üzerine yavaşça sade sodayı ekle.Nazikçe karıştırarak servis et. </td>
+                    <td class="notes-cell">birkaç taze böğürtlen ve nane yaprağı ile sunumu zenginleştirebilirsin.</td>
+                </tr><tr class="drink-row">
+                    <td class="drink-name-cell">Greyfurtlu Soda</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            40 ML Greyfurt Suyu <br>
+                            15 ML Şeker Şurubu <br>
+                            300 ML Sade Soda <br>  
+                            120 GR Buz
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Bardağa buzları ekle. Greyfurt suyu ve şeker şurubunu ilave edip karıştır.Üzerine yavaşça sade sodayı dök.Nazikçe karıştırarak servis et.
+ </td>
+                    <td class="notes-cell">İstersen bir dilim greyfurt ve taze biberiye ile aromayı daha sofistike hale getirebilirsin.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Mango Mojito (Alkolsüz) </td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            40 ML Mango Püresi<br>
+                            20 ML Limon Suyu<br>
+                            15 ML Şeker Şurubu <br> 
+                            8 Yaprak Nane<br> 
+                            250 ML Soda<br>
+                            150 GR Buz
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Nane yapraklarını bardağın dibinde hafifçe ezerek aromasını çıkar.Mango püresi, limon suyu ve şeker şurubunu ekle.Buzu ilave et.Üzerine soda dökerek nazikçe karıştır.
+ </td>
+                    <td class="notes-cell">(M) şeffaf bardakta servis edilir. Üzerine nane yaprağı veya mango dilimi ile görsel vurgusu yapılabilir.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Coconut Pine Cooler </td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            60 ML Ananas Suyu<br>
+                            30 ML Hindistan Cevizi Şurubu<br>
+                            20 ML Limon Suyu <br> 
+                            200 ML Soda<br> 
+                            120 GR Buz<br>
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">(M) Bardağa buzları ekle.Ananas suyu, Hindistan cevizi şurubu ve limon suyunu ilave et.Üzerine soda dökerek nazikçe karıştır.
+ </td>
+                    <td class="notes-cell">Üzerine ananas dilimi veya rendelenmiş Hindistan cevizi ile görsel vurgusu yapılabilir.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Berry Sparkle</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            40 ML Böğürtlen Püresi<br>
+                            20 ML Limon Suyu<br>
+                            15 ML Şeker Şurubu <br> 
+                            250 ML Soda<br> 
+                            120 GR Buz<br>
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">(M) Bardağa buzları ekle.Böğürtlen püresi, limon suyu ve şeker şurubunu ilave et. Üzerine soda dökerek nazikçe karıştır.
+ </td>
+                    <td class="notes-cell">Üzerine taze böğürtlen veya nane yaprağı ile görsel vurgusu yapılabilir.</td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Strawberry Basil Smash</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            50 ML Çilek Püresi<br>
+                            15 ML Limon Suyu<br>
+                            15 ML Şeker Şurubu <br> 
+                            250 ML Soda<br> 
+                            150 GR Buz<br>
+                            2 Yaprak Fesleğen
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Fesleğen yapraklarını (M) Bardağın dibinde hafifçe ezerek aromasını çıkar.Çilek püresi, limon suyu ve şeker şurubunu ekle.Buzu ilave et.Üzerine soda dökerek nazikçe karıştır.
+ </td>
+                    <td class="notes-cell">Üzerine çilek dilimi ve fesleğen yaprağı ile görsel vurgusu yapılabilir</td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Peach Ginger Fizz</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            40 ML Şeftali Püresi<br>
+                            10 ML Zencefil Şurubu<br>
+                            20 ML Limon Suyu<br> 
+                            250 ML Soda<br> 
+                            120 GR Buz<br>
+                            
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">(M) Bardağa buzları ekle.Şeftali püresi, zencefil şurubu ve limon suyunu ekle.Üzerine soda dökerek nazikçe karıştır.
+ </td>
+                    <td class="notes-cell">Üzerine şeftali dilimi veya taze nane ile görsel vurgusu yapılabilir</td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Citrus Mix Fizz</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            40 ML Portakal Suyu<br>
+                            30 ML Greyfurt Suyu<br>
+                            20 ML Limon Suyu<br>
+                            15 ML Şeker Şurubu<br> 
+                            200 ML Soda<br> 
+                            120 GR Buz<br>
+                            
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">(M) Bardağa buzları ekleyin. Portakal suyu, greyfurt suyu, limon suyu ve şeker şurubunu ilave edin.Üzerine soda döküp nazikçe karıştırın
+ </td>
+                    <td class="notes-cell">Servis sırasında bardağın kenarına ince bir greyfurt dilimi ve portakal kabuğu kıvrımı ekleyin.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Blue Lagoon (Alkolsüz)</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            20 ML Mavi Portakal Şurubu<br>
+                            30 ML Limon Suyu<br>
+                            20 ML Şeker Şurubu<br>
+                            250 ML Soda<br>  
+                            150 GR Buz<br>
+                            
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">(M) Bardağa buzları ekleyin.Mavi portakal şurubu, limon suyu ve şeker şurubunu ilave edin.Üzerine soda dökerek nazikçe karıştırın.
+ </td>
+                    <td class="notes-cell">Üstüne birkaç buz küpü ve limon kabuğu spirali ekleyerek görsel olarak “okyanus mavisi” etkisi yaratabilirsiniz.</td>
+                </tr>
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Watermelon Mint Fizz</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            60 ML Karpuz Püresi<br>
+                            20 ML Limon Suyu<br>
+                            15 ML Şeker Şurubu<br>
+                            250 ML Soda<br>  
+                            150 GR Buz<br>
+                            6 Yaprak Nane
+                            
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">Nane yapraklarını (M) Bardağın dibinde hafifçe ezerek aromasını çıkarın.Karpuz püresi, limon suyu ve şeker şurubunu ekleyin.Buzu ilave edin.Üzerine soda döküp nazikçe karıştırın.
+ </td>
+                    <td class="notes-cell">Servis sırasında bardağın üstüne nane dalı ekleyin</td>
+                </tr>
+
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Passion Storm</td>
+                    <td class="size-cell" colspan="3">
+                        <div class="size-content">
+                            40 ML Passion Şurubu<br>
+                            30 ML Portakal Suyu<br>
+                            20 ML Limon Suyu<br>
+                            200 ML Soda<br>  
+                            120 GR Buz<br>
+                            
+                            
+
+                        </div>
+                    </td>
+                    <td class="recipe-cell">(M) Bardağa buzları ekleyin.Passion şurubu, portakal suyu ve limon suyunu ilave edin.Üzerine soda dökerek nazikçe karıştırın.
+ </td>
+                    <td class="notes-cell">Servis sırasında bardağın kenarına ince bir portakal dilimi ve çarkıfelek tohumu serpiştirerek tropikal bir görsellik oluşturun.</td>
+                </tr>
+            <!-- Special Preparations Section -->
+            </tbody><tbody class="category-section">
+                <tr>
+                    <td colspan="6" class="category-title">🔬 Özel Hazırlık Malzemeleri</td>
+                </tr>
+                <tr>
+                    <td class="table-header">Malzeme</td>
+                    <td class="table-header" colspan="4">Hazırlanış</td>
+                    <td class="table-header">Raf Ömrü</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Raspberry Cordial</td>
+                    <td class="recipe-cell" colspan="4">
+                        Blendere yarım bardak sıcak su yarım bardak toz şeker koy şeker şurubu oluştur başka her hangi  bir şeyin içerisinde böğürtlen püresi koy hafif sulandır pancake hamuru kıvamına getir blenderde hazırladığın şeker şurubunun üzeri koy çek ve hazır. Plastik şişeye koy dolapta kalsın
+                    </td>
+                    <td class="notes-cell">4 gün dolapta muhafaza edebilrisin.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Simple Şurup</td>
+                    <td class="recipe-cell" colspan="4">
+                        1 bardak sıcak su + 1 bardak şeker → blenderde çek
+                    </td>
+                    <td class="notes-cell">Şeker şurubu</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Acı Passion Şurup</td>
+                    <td class="recipe-cell" colspan="4">
+                        4 acı chilli biber ince doğra göz kararınla belirle → passion püresinde 1 gece beklet → 2-3 damla tabasco ekle 
+                    </td>
+                    <td class="notes-cell">Muhafaza et</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Bitter SS Sos</td>
+                    <td class="recipe-cell" colspan="4">
+                        5 portakal kabuğu + 3 limon kabuğu rendele → 2 bardak şekerde 1 gece beklet → 
+                        1 bardak limon + 1 bardak portakal suyu + 1 bardak şeker +  şekerde bekleyen kabukları → blendere at → karıştır ve şişele
+                    </td>
+                    <td class="notes-cell">4 gün raf ömrü vardır.</td>
+                </tr>
+                
+                <tr class="drink-row">
+                    <td class="drink-name-cell">Foamer</td>
+                    <td class="recipe-cell" colspan="4">
+                        Aktardan çöven otu kökü → kısık ateşte kaynat → 7 dakika sonra süz → soğut → damla şişesine koy → muhafaza et.
+                    </td>
+                    <td class="notes-cell">Çöven otu kullan</td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="category-title"> © 2026 Tüm Hakları Saklıdır.<br>
+                         Kopyalanması Çoğaltılması Kesinlikle Yasaktır. YM Software</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    
+    <script>
+        // Mobil cihazlarda tabloyu kart yapısına dönüştür
+        function createMobileCards() {
+            if (window.innerWidth > 768) return;
+            
+            const mobileContainer = document.getElementById('mobile-cards');
+            const table = document.querySelector('table');
+            const sections = table.querySelectorAll('tbody.category-section');
+            
+            mobileContainer.innerHTML = '';
+            
+            sections.forEach(section => {
+                const categoryTitle = section.querySelector('.category-title');
+                const categoryText = categoryTitle?.textContent.trim() || '';
+                const rows = section.querySelectorAll('.drink-row');
+                
+                // Kategori sınıfını belirle
+                let categoryClass = '';
+                if (categoryText.includes('Sıcak Espresso')) categoryClass = 'hot-drinks';
+                else if (categoryText.includes('Soğuk Espresso')) categoryClass = 'ice-drinks';
+                else if (categoryText.includes('Milkshake')) categoryClass = 'milkshake';
+                else if (categoryText.includes('Frozen')) categoryClass = 'frozen';
+                else if (categoryText.includes('Matcha')) categoryClass = 'cocktail';
+                else if (categoryText.includes('La Plata Special')) categoryClass = 'special';
+                else if (categoryText.includes('Bubble Tea')) categoryClass = 'bubble';
+                
+                rows.forEach(row => {
+                    const drinkName = row.querySelector('.drink-name-cell')?.textContent.trim();
+                    const sizeCells = row.querySelectorAll('.size-cell');
+                    const recipeCell = row.querySelector('.recipe-cell')?.textContent.trim();
+                    const notesCell = row.querySelector('.notes-cell')?.textContent.trim();
+                    
+                    if (!drinkName) return;
+                    
+                    const card = document.createElement('div');
+                    card.className = 'drink-card';
+                    
+                    let cardHTML = `
+                        <div class="card-category ${categoryClass}">${categoryText}</div>
+                        <div class="card-drink-name">${drinkName}</div>
+                    `;
+                    
+                    // Boy bilgileri
+                    if (sizeCells.length > 0) {
+                        const sizeTexts = Array.from(sizeCells).map(cell => {
+                            const content = cell.querySelector('.size-content');
+                            return content ? content.innerHTML.trim() : cell.textContent.trim();
+                        }).filter(text => text && text !== '-');
+                        
+                        if (sizeTexts.length > 0) {
+                            cardHTML += '<div class="card-section"><div class="card-label">Boyutlar</div><div class="card-sizes">';
+                            
+                            const sizeLabels = ['S Boy', 'M Boy', 'L Boy'];
+                            sizeTexts.forEach((text, index) => {
+                                if (text !== '-') {
+                                    cardHTML += `
+                                        <div class="card-size-item">
+                                            <span class="card-size-label">${sizeLabels[index] || 'Boy'}</span>
+                                            <div class="card-size-value">${text}</div>
+                                        </div>
+                                    `;
+                                }
+                            });
+                            
+                            cardHTML += '</div></div>';
+                        }
+                    }
+                    
+                    // Hazırlanış
+                    if (recipeCell) {
+                        cardHTML += `
+                            <div class="card-section">
+                                <div class="card-label">📝 Hazırlanış</div>
+                                <div class="card-recipe">${recipeCell}</div>
+                            </div>
+                        `;
+                    }
+                    
+                    // Notlar
+                    if (notesCell) {
+                        cardHTML += `
+                            <div class="card-section">
+                                <div class="card-label">💡 Notlar</div>
+                                <div class="card-notes">${notesCell}</div>
+                            </div>
+                        `;
+                    }
+                    
+                    card.innerHTML = cardHTML;
+                    mobileContainer.appendChild(card);
+                });
+            });
+        }
+        
+        // Sayfa yüklendiğinde ve ekran boyutu değiştiğinde çalıştır
+        window.addEventListener('load', createMobileCards);
+        window.addEventListener('resize', createMobileCards);
+    </script>
+
+
+</div></body></html>
